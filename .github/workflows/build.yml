@@ -28,6 +28,19 @@ jobs:
         run: |
           pyinstaller --noconfirm --windowed --onefile --icon=icon.ico main.py
 
+      - name: List contents of dist directory (Windows)
+        run: |
+          ls -la dist
+
+      - name: Check if AOwake.exe exists
+        run: |
+          if [ -f "dist/AOwake.exe" ]; then
+            echo "AOwake.exe exists!"
+          else
+            echo "AOwake.exe does not exist!"
+            exit 1
+          fi
+              
       - name: Upload executable
         uses: actions/upload-artifact@v3.1.2
         with:
