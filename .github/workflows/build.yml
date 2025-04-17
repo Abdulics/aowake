@@ -26,7 +26,7 @@ jobs:
 
       - name: Build executable
         run: |
-          pyinstaller main.py  --name AOwake --windowed --icon=icon.ico
+          pyinstaller --noconfirm main.py --onefile --name AOwake --windowed --icon=icon.ico
 
       - name: List contents of dist directory (Windows)
         run: |
@@ -34,7 +34,7 @@ jobs:
 
       - name: Check if AOwake.exe exists
         run: |
-          if (Test-Path "dist/AOwake.exe") {
+          if (Test-Path "dist\\AOwake.exe") {
             Write-Output "AOwake.exe exists!"
           } else {
             Write-Error "AOwake.exe does not exist!"
