@@ -1,5 +1,7 @@
 
 # AOwake - Always On
+![Build AOwake](https://github.com/abdulics/aowake/actions/workflows/build.yml/badge.svg)
+
 
 **AOwake** is a lightweight, cross-platform desktop app that prevents your computer from sleeping by keeping the system awake **and randomly moving the mouse**. Whether you're watching long videos, downloading big files, or just want to stay online, AOwake keeps you "awake."
 
