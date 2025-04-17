@@ -34,12 +34,12 @@ jobs:
 
       - name: Check if AOwake.exe exists
         run: |
-          if [ -f "dist/AOwake.exe" ]; then
-            echo "AOwake.exe exists!"
-          else
-            echo "AOwake.exe does not exist!"
-            exit 1
-          fi
+          if (Test-Path "dist/AOwake.exe") {
+            Write-Output "AOwake.exe exists!"
+          } else {
+            Write-Error "AOwake.exe does not exist!"
+          }
+          
 
       - name: Upload executable
         uses: actions/upload-artifact@v4.6.2
