@@ -26,7 +26,7 @@ jobs:
 
       - name: Build executable
         run: |
-          pyinstaller --noconfirm --windowed --onefile --icon=icon.ico main.py
+          pyinstaller -m main.py  --name AOwake --windowed --icon=icon.ico
 
       - name: List contents of dist directory (Windows)
         run: |
