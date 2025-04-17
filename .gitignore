@@ -1,0 +1,16 @@
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore build files
+dist/
+build/
+*.spec
+
+# Ignore icons if compiled with PyInstaller
+*.ico
+*.icns
+
+# Virtual environments
+venv/
+.env/
