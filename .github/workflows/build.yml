@@ -28,7 +28,7 @@ jobs:
         pyinstaller --noconfirm --windowed --onefile --icon=icon.ico main.py
 
     - name: Upload executable
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v3.1.2
       with:
         name: AOwake.exe
         path: dist/AOwake.exe
