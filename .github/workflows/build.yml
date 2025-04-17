@@ -30,7 +30,7 @@ jobs:
 
       - name: List contents of dist directory (Windows)
         run: |
-          ls -la dist
+          dir dist
 
       - name: Check if AOwake.exe exists
         run: |
