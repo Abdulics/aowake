@@ -54,6 +54,15 @@ class PreventSleepApp:
             self.caffeinate = subprocess.Popen(['caffeinate'])
             print("Sleep prevention enabled on macOS.")
 
+    def scroll_screen(self, count):
+        if count <= 10:
+            pyautogui.scroll(35)
+        elif count <= 20:
+            pyautogui.scroll(-35)
+        else:
+            count = 0
+        return count            
+
     def reset_sleep(self):
         if sys.platform.startswith('win'):
             ctypes.windll.kernel32.SetThreadExecutionState(ES_CONTINUOUS)
@@ -67,6 +76,7 @@ class PreventSleepApp:
         pyautogui.FAILSAFE = False
         screen_width, screen_height = pyautogui.size()
         pyautogui.moveTo(600, 150)
+        count = 0
 
         while self.running:
             x = random.randint(-50, 50)
@@ -75,6 +85,8 @@ class PreventSleepApp:
             new_x = min(max(current_x + x, 0), screen_width - 1)
             new_y = min(max(current_y + y, 0), screen_height - 1)
             pyautogui.moveTo(new_x, new_y, duration=random.uniform(0.5, 1.5))
+            count +=1
+            count = self.scroll_screen(count)
             time.sleep(random.uniform(5, 15))
 
     def start(self):
