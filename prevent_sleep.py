@@ -83,9 +83,20 @@ class PreventSleepApp:
             new_x = min(max(current_x + x, 0), screen_width - 1)
             new_y = min(max(current_y + y, 0), screen_height - 1)
             pyautogui.moveTo(new_x, new_y, duration=random.uniform(0.5, 1.5))
+
             count += 1
             count = self.scroll_screen(count)
-            time.sleep(random.uniform(5, 15))
+
+            total_sleep = random.uniform(5, 15)
+            elapsed = 0
+            interval = 0.5  # Check every 0.5 seconds
+
+            while elapsed < total_sleep:
+                if not self.running:
+                    return
+                time.sleep(interval)
+                elapsed += interval
+
 
     def start(self):
         if not self.running:
